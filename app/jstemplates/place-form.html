@@ -1,4 +1,4 @@
-<h4>Describe the issue.</h4>
+<h4>Describe your idea.</h4>
 
 <form class="place-form clearfix">
   <fieldset>
@@ -18,20 +18,15 @@
     {{/if}}
 
     <div class="text form-item-container">
-      <label for="place-location_type">Observed issue </label>
+      <label for="place-location_type">Category </label>
       <ul class="place-type-list place-type-selector unstyled-list">
         <li class="prompt {{^if location_type}}active{{/if}}">Please choose a category&hellip;</li>
-        <li class="{{#is location_type 'notime'}}active{{/is}}" data-value="notime"><img src="styles/images/icon-notime.png">&nbsp;<strong>Not Enough Time to Cross</strong></li>
-        <li class="{{#is location_type 'doublepark'}}active{{/is}}" data-value="doublepark"><img src="styles/images/icon-doublepark.png">&nbsp;<strong>Double Parking</strong></li>
-        <li class="{{#is location_type 'longwait'}}active{{/is}}" data-value="longwait"><img src="styles/images/icon-longwait.png">&nbsp;<strong>Long Wait to Cross</strong></li>
-        <li class="{{#is location_type 'redlight'}}active{{/is}}" data-value="redlight"><img src="styles/images/icon-redlight.png">&nbsp;<strong>Red Light Running</strong></li>
-        <li class="{{#is location_type 'jaywalking'}}active{{/is}}" data-value="jaywalking"><img src="styles/images/icon-jaywalking.png">&nbsp;<strong>Jaywalking</strong></li>
-        <li class="{{#is location_type 'visibility'}}active{{/is}}" data-value="visibility"><img src="styles/images/icon-visibility.png">&nbsp;<strong>Poor Visibility</strong></li>
-        <li class="{{#is location_type 'speeding'}}active{{/is}}" data-value="speeding"><img src="styles/images/icon-speeding.png">&nbsp;<strong>Speeding</strong></li>
-        <li class="{{#is location_type 'longcross'}}active{{/is}}" data-value="longcross"><img src="styles/images/icon-longcross.png">&nbsp;<strong>Long Distance to Cross</strong></li>
-        <li class="{{#is location_type 'yield'}}active{{/is}}" data-value="yield"><img src="styles/images/icon-yield.png">&nbsp;<strong>Failure to Yield</strong></li>
-        <li class="{{#is location_type 'bike'}}active{{/is}}" data-value="bike"><img src="styles/images/icon-bike.png">&nbsp;<strong>Cyclist Behavior</strong></li>
-        <li class="{{#is location_type 'other'}}active{{/is}}" data-value="other"><img src="styles/images/icon-other.png">&nbsp;<strong>Other</strong></li>
+        <li class="{{#is location_type 'notime'}}active{{/is}}" data-value="notime"><img src="styles/images/markers/dot-longcross-m.png">&nbsp;<strong>Engage with other communities</strong></li>
+        <li class="{{#is location_type 'doublepark'}}active{{/is}}" data-value="doublepark"><img src="styles/images/markers/dot-doublepark-m.png">&nbsp;<strong>Relax, socialize and enjoy</strong></li>
+        <li class="{{#is location_type 'longwait'}}active{{/is}}" data-value="longwait"><img src="styles/images/markers/dot-longwait-m.png">&nbsp;<strong>Tell my neighborhood's story</strong></li>
+        <li class="{{#is location_type 'redlight'}}active{{/is}}" data-value="redlight"><img src="styles/images/markers/dot-redlight-m.png">&nbsp;<strong>Better navigation</strong></li>
+        <li class="{{#is location_type 'jaywalking'}}active{{/is}}" data-value="jaywalking"><img src="styles/images/markers/dot-speeding-m.png">&nbsp;<strong>Underrepresented communities</strong></li>
+        <li class="{{#is location_type 'visibility'}}active{{/is}}" data-value="visibility"><img src="styles/images/markers/dot-unknown-m.png">&nbsp;<strong>Other</strong></li>
       </ul>
       <input type="hidden" name="location_type" value="{{default location_type 'other'}}">
 
@@ -41,15 +36,10 @@
       <p class="type-instructions redlight-type-instructions {{#isnt location_type 'redlight'}}is-hidden{{/isnt}}">Many drivers don’t stop at a red light or a stop sign.</p>
       <p class="type-instructions jaywalking-type-instructions {{#isnt location_type 'jaywalking'}}is-hidden{{/isnt}}">Many pedestrians cross the street against the signal or in the middle of the block.</p>
       <p class="type-instructions visibility-type-instructions {{#isnt location_type 'visibility'}}is-hidden{{/isnt}}">Drivers and pedestrians have difficulty seeing each other.</p>
-      <p class="type-instructions speeding-type-instructions {{#isnt location_type 'speeding'}}is-hidden{{/isnt}}">Many drivers travel above the speed limit.</p>
-      <p class="type-instructions longcross-type-instructions {{#isnt location_type 'longcross'}}is-hidden{{/isnt}}">The road is too wide to cross comfortably and/or there aren’t safe areas where pedestrians can wait if the signal changes to “Don’t Walk”.</p>
-      <p class="type-instructions yield-type-instructions {{#isnt location_type 'yield'}}is-hidden{{/isnt}}">Drivers turning into the crosswalk don’t yield to crossing pedestrians.</p>
-      <p class="type-instructions bike-type-instructions {{#isnt location_type 'bike'}}is-hidden{{/isnt}}">Many cyclists do not yield to pedestrians, bike against the flow of traffic, ignore traffic signals or other issues.</p>
-      <p class="type-instructions other-type-instructions {{#isnt location_type 'other'}}is-hidden{{/isnt}}">Suggestions on this site will be used for a safety plan. Have a street defect or faded marking you would like repaired? Contact <a href="http://www.nyc.gov/html/dot/html/contact/contact-form.shtml">DOT</a> or call <a href="http://nyc.gov/311">311</a>.</p>
     </div>
 
     <div class="textarea form-item-container">
-      <label for="place-description">Provide more information about the issue <small class="is-hidden">(optional)</small></label>
+      <label for="place-description">Describe your idea <small class="is-hidden">(optional)</small></label>
       <textarea id="place-description" name="description" placeholder="Description..." required>{{description}}</textarea>
     </div>
 
@@ -58,7 +48,7 @@
       <input id="place-private-submitter_email" name="private-submitter_email" type="text" placeholder="Email address" size="30" value="{{private-submitter_email}}">
     </div>
 
-    <p class="form-instructions">Drag the marker to the location of the issue you&apos;re sharing.</p>
+    <p class="form-instructions">Drag the marker to the location of the idea you&apos;re sharing.</p>
 
     <input name="save-place-btn" type="submit" value="Put on map" class="btn btn-primary submit-btn">
 

@@ -291,7 +291,7 @@ var Shareabouts = Shareabouts || {};
       'bike': '#00aeef',
     },
     mapStyle: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ece2d9"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"off"}]}],
-    datasetUrl: 'http://data.shareabouts.org/api/v2/admin/datasets/vz-dev/places',
+    datasetUrl: 'http://data.shareabouts.org/api/v2/shraddha/datasets/market-street-dev/places',
   };
 
   NS.Router = Backbone.Router.extend({
@@ -600,9 +600,9 @@ var Shareabouts = Shareabouts || {};
 
   function initMap() {
     var map = new google.maps.Map($('.shareabouts-location-map').get(0), {
-          center: new google.maps.LatLng(40.7210690835, -73.9981985092),
-          zoom: 14,
-          minZoom: 11,
+          center: new google.maps.LatLng(37.7854838, -122.4061001),
+          zoom: 15,
+          minZoom: 12,
           maxZoom: 19,
           streetViewControl: false,
           panControl: false,
@@ -689,7 +689,7 @@ var Shareabouts = Shareabouts || {};
     // Interactive tile layer hosted on mapbox.com. NOTE: wax is a DEPRECATED
     // library, but still better for styling+interactivity than Fusion Tables.
     // NOTE, that despite the name, this is just the intersections now.
-    wax.tilejson('http://a.tiles.mapbox.com/v3/openplans.161VisionZeroIntersections.json', function(tilejson) {
+    wax.tilejson('http://a.tiles.mapbox.com/v3/openplans.MarketStreet.json', function(tilejson) {
       map.overlayMapTypes.insertAt(1, new wax.g.connector(tilejson));
       wax.g.interaction()
         .map(map)
