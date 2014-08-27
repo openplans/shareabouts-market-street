@@ -21,12 +21,9 @@
       <label for="place-location_type">Category </label>
       <ul class="place-type-list place-type-selector unstyled-list">
         <li class="prompt {{^if location_type}}active{{/if}}">Please choose a category&hellip;</li>
-        <li class="{{#is location_type 'notime'}}active{{/is}}" data-value="notime"><img src="styles/images/markers/dot-longcross-m.png">&nbsp;<strong>Engage with other communities</strong></li>
-        <li class="{{#is location_type 'doublepark'}}active{{/is}}" data-value="doublepark"><img src="styles/images/markers/dot-doublepark-m.png">&nbsp;<strong>Relax, socialize and enjoy</strong></li>
-        <li class="{{#is location_type 'longwait'}}active{{/is}}" data-value="longwait"><img src="styles/images/markers/dot-longwait-m.png">&nbsp;<strong>Tell my neighborhood's story</strong></li>
-        <li class="{{#is location_type 'redlight'}}active{{/is}}" data-value="redlight"><img src="styles/images/markers/dot-redlight-m.png">&nbsp;<strong>Better navigation</strong></li>
-        <li class="{{#is location_type 'jaywalking'}}active{{/is}}" data-value="jaywalking"><img src="styles/images/markers/dot-speeding-m.png">&nbsp;<strong>Underrepresented communities</strong></li>
-        <li class="{{#is location_type 'visibility'}}active{{/is}}" data-value="visibility"><img src="styles/images/markers/dot-unknown-m.png">&nbsp;<strong>Other</strong></li>
+        <li class="{{#is location_type 'notime'}}active{{/is}}" data-value="notime"><img src="styles/images/markers/dot-01.png">&nbsp;<strong>Something you like</strong></li>
+        <li class="{{#is location_type 'redlight'}}active{{/is}}" data-value="redlight"><img src="styles/images/markers/dot-02.png">&nbsp;<strong>Something you don't like</strong></li>
+        <li class="{{#is location_type 'jaywalking'}}active{{/is}}" data-value="jaywalking"><img src="styles/images/markers/dot-03.png">&nbsp;<strong>Prototype idea</strong></li>
       </ul>
       <input type="hidden" name="location_type" value="{{default location_type 'other'}}">
 

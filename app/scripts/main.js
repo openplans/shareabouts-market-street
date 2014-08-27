@@ -440,7 +440,7 @@ var Shareabouts = Shareabouts || {};
       addButtonLabel: 'Share an Issue',
       maxDistance: 25,
       newPlaceInfoWindow: {
-        content: '<strong>Drag me to the spot where the issue occurs.</strong>'
+        content: '<strong>Drag me to the location of your idea.</strong>'
       },
       currentUser: currentUser,
 
