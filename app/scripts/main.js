@@ -5,7 +5,7 @@ var Shareabouts = Shareabouts || {};
 (function(NS, $, console) {
   Swag.registerHelpers();
 
-  var minVectorZoom = 16,
+  var minVectorZoom = 12,
       maxVectorZoom = 19,
       preventIntersectionClick = false,
       streetviewVisible = false,
@@ -45,147 +45,44 @@ var Shareabouts = Shareabouts || {};
 
   NS.Config = {
     placeTypes: {
-      'notime': { label: 'Not Enough Time to Cross' },
-      'doublepark': { label: 'Double Parking' },
-      'longwait': { label: 'Long Wait to Cross' },
-      'redlight': { label: 'Red Light Running' },
-      'jaywalking': { label: 'Jaywalking' },
-      'visibility': { label: 'Poor Visibility' },
-      'speeding': { label: 'Speeding' },
-      'longcross': { label: 'Long Distance to Cross' },
-      'yield': { label: 'Failure to Yield' },
-      'bike': { label: 'Cyclist Behavior' },
-      'other': { label: 'Other' }
+      'like': { label: 'Someone likes this on Market Street' },
+      'dislike': { label: 'Someone dislikes this on Market Street' },
+      'idea': { label: 'A prototype idea' },
     },
     placeStyles: [
       {
-        condition: '"{{location_type}}" == "doublepark"',
+        condition: '"{{location_type}}" == "idea"',
         icon: {
-          url: 'styles/images/markers/marker-70x124-doublepark.png',
-          anchor: new google.maps.Point(35,103)
+          url: 'styles/images/markers/sv-idea.png',
+          anchor: new google.maps.Point(41,109)
         },
         focusIcon: {
-          url: 'styles/images/markers/marker-76x127-doublepark-focused.png',
-          anchor: new google.maps.Point(38,106)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "jaywalking"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-jaywalking.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-jaywalking-focused.png',
-          anchor: new google.maps.Point(38,106)
+          url: 'styles/images/markers/focused-idea.png',
+          anchor: new google.maps.Point(41,109)
 
         }
       },
       {
-        condition: '"{{location_type}}" == "longcross"',
+        condition: '"{{location_type}}" == "like"',
         icon: {
-          url: 'styles/images/markers/marker-70x124-longcross.png',
-          anchor: new google.maps.Point(35,103)
+          url: 'styles/images/markers/sv-like.png',
+          anchor: new google.maps.Point(41,109)
         },
         focusIcon: {
-          url: 'styles/images/markers/marker-76x127-longcross-focused.png',
-          anchor: new google.maps.Point(38,106)
+          url: 'styles/images/markers/focused-like.png',
+          anchor: new google.maps.Point(41,109)
 
         }
       },
       {
-        condition: '"{{location_type}}" == "longwait"',
+        condition: '"{{location_type}}" == "dislike"',
         icon: {
-          url: 'styles/images/markers/marker-70x124-longwait.png',
-          anchor: new google.maps.Point(35,103)
+          url: 'styles/images/markers/sv-dislike.png',
+          anchor: new google.maps.Point(41,109)
         },
         focusIcon: {
-          url: 'styles/images/markers/marker-76x127-longwait-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "notime"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-notime.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-notime-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "redlight"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-redlight.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-redlight-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "speeding"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-speeding.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-speeding-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "visibility"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-visibility.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-visibility-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "yield"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-yield.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-yield-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "bike"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-bike.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-bike-focused.png',
-          anchor: new google.maps.Point(38,106)
-
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "other"',
-        icon: {
-          url: 'styles/images/markers/marker-70x124-other.png',
-          anchor: new google.maps.Point(35,103)
-        },
-        focusIcon: {
-          url: 'styles/images/markers/marker-76x127-other-focused.png',
-          anchor: new google.maps.Point(38,106)
+          url: 'styles/images/markers/focused-dislike.png',
+          anchor: new google.maps.Point(41,109)
 
         }
       },
@@ -200,95 +97,31 @@ var Shareabouts = Shareabouts || {};
     ],
     mapPlaceStyles: [
       {
-        condition: '"{{location_type}}" == "doublepark"',
+        condition: '"{{location_type}}" == "idea"',
         icon: {
-          url: 'styles/images/markers/icon-dot-doublepark.png',
-          anchor: new google.maps.Point(16, 16)
+          url: 'styles/images/markers/idea.png',
+          anchor: new google.maps.Point(12, 12)
         }
       },
       {
-        condition: '"{{location_type}}" == "jaywalking"',
+        condition: '"{{location_type}}" == "like"',
         icon: {
-          url: 'styles/images/markers/icon-dot-jaywalking.png',
-          anchor: new google.maps.Point(16, 16)
+          url: 'styles/images/markers/like.png',
+          anchor: new google.maps.Point(12, 12)
         }
       },
       {
-        condition: '"{{location_type}}" == "longcross"',
+        condition: '"{{location_type}}" == "dislike"',
         icon: {
-          url: 'styles/images/markers/icon-dot-longcross.png',
-          anchor: new google.maps.Point(16, 16)
+          url: 'styles/images/markers/dislike.png',
+          anchor: new google.maps.Point(12, 12)
         }
       },
-      {
-        condition: '"{{location_type}}" == "longwait"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-longwait.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "notime"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-notime.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "redlight"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-redlight.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "speeding"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-speeding.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "visibility"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-visibility.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "yield"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-yield.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "bike"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-bike.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      },
-      {
-        condition: '"{{location_type}}" == "other"',
-        icon: {
-          url: 'styles/images/markers/icon-dot-other.png',
-          anchor: new google.maps.Point(16, 16)
-        }
-      }
     ],
     placeColors: {
-      'yield': '#fff200',
-      'visibility': '#87c440',
-      'other': '#ababab',
-      'speeding': '#ae4f9e',
-      'redlight': '#ed1c24',
-      'notime': '#000',
-      'longwait': '#f6891f',
-      'longcross': '#3062ae',
-      'jaywalking': '#ed1d8b',
-      'doublepark': '#2b8246',
-      'bike': '#00aeef',
+      'dislike': '#dc143c',
+      'like': '#4169e1',
+      'idea': '#ffd700',
     },
     mapStyle: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ece2d9"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"off"}]}],
     datasetUrl: 'http://data.shareabouts.org/api/v2/shraddha/datasets/market-street-dev/places',
@@ -437,7 +270,7 @@ var Shareabouts = Shareabouts || {};
       },
       placeStyles: NS.Config.placeStyles,
       datasetUrl: NS.Config.datasetUrl,
-      addButtonLabel: 'Share an Issue',
+      addButtonLabel: 'Share an Idea',
       maxDistance: 25,
       newPlaceInfoWindow: {
         content: '<strong>Drag me to the location of your idea.</strong>'
@@ -655,7 +488,7 @@ var Shareabouts = Shareabouts || {};
         }
 
         var subdomains = ['a', 'b', 'c', 'd'];
-        return ['http://', subdomains[getRandomInt(0, 3)], '.tiles.mapbox.com/v3/openplans.i7opnbif/',
+        return ['http://', subdomains[getRandomInt(0, 3)], '.tiles.mapbox.com/v3/openplans.MarketStreet/',
             zoom, '/', coord.x, '/', coord.y, '.png'].join('');
       },
       tileSize: new google.maps.Size(256, 256),
@@ -689,7 +522,7 @@ var Shareabouts = Shareabouts || {};
     // Interactive tile layer hosted on mapbox.com. NOTE: wax is a DEPRECATED
     // library, but still better for styling+interactivity than Fusion Tables.
     // NOTE, that despite the name, this is just the intersections now.
-    wax.tilejson('http://a.tiles.mapbox.com/v3/openplans.MarketStreet.json', function(tilejson) {
+    wax.tilejson('http://a.tiles.mapbox.com/v3/openplans.marketst_intersections.json', function(tilejson) {
       map.overlayMapTypes.insertAt(1, new wax.g.connector(tilejson));
       wax.g.interaction()
         .map(map)
@@ -876,59 +709,19 @@ var Shareabouts = Shareabouts || {};
         // Close the list
         $target.removeClass('is-open');
 
-        if (value === 'other') {
+        if (value === 'idea') {
           $('.type-instructions').addClass('is-hidden');
-          $('.other-type-instructions').removeClass('is-hidden');
+          $('.idea-type-instructions').removeClass('is-hidden');
           $('#place-description').prop('required', true);
           $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'bike') {
+        } else if (value === 'dislike') {
           $('.type-instructions').addClass('is-hidden');
-          $('.bike-type-instructions').removeClass('is-hidden');
+          $('.dislike-type-instructions').removeClass('is-hidden');
           $('#place-description').prop('required', true);
           $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'yield') {
+        } else if (value === 'like') {
           $('.type-instructions').addClass('is-hidden');
-          $('.yield-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'longcross') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.longcross-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'speeding') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.speeding-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'visibility') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.visibility-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'jaywalking') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.jaywalking-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'redlight') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.redlight-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'longwait') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.longwait-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'doublepark') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.doublepark-type-instructions').removeClass('is-hidden');
-          $('#place-description').prop('required', true);
-          $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
-        } else if (value === 'notime') {
-          $('.type-instructions').addClass('is-hidden');
-          $('.notime-type-instructions').removeClass('is-hidden');
+          $('.like-type-instructions').removeClass('is-hidden');
           $('#place-description').prop('required', true);
           $('label[for="place-description"] small').addClass('is-hidden'); // the '(optional)' text
         } else {

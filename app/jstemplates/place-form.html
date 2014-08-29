@@ -21,18 +21,12 @@
       <label for="place-location_type">Category </label>
       <ul class="place-type-list place-type-selector unstyled-list">
         <li class="prompt {{^if location_type}}active{{/if}}">Please choose a category&hellip;</li>
-        <li class="{{#is location_type 'notime'}}active{{/is}}" data-value="notime"><img src="styles/images/markers/dot-01.png">&nbsp;<strong>Something you like</strong></li>
-        <li class="{{#is location_type 'redlight'}}active{{/is}}" data-value="redlight"><img src="styles/images/markers/dot-02.png">&nbsp;<strong>Something you don't like</strong></li>
-        <li class="{{#is location_type 'jaywalking'}}active{{/is}}" data-value="jaywalking"><img src="styles/images/markers/dot-03.png">&nbsp;<strong>Prototype idea</strong></li>
+        <li class="{{#is location_type 'like'}}active{{/is}}" data-value="like"><img src="styles/images/markers/like.png">&nbsp;<strong>Something you like</strong></li>
+        <li class="{{#is location_type 'dislike'}}active{{/is}}" data-value="dislike"><img src="styles/images/markers/dislike.png">&nbsp;<strong>Something you don't like</strong></li>
+        <li class="{{#is location_type 'idea'}}active{{/is}}" data-value="idea"><img src="styles/images/markers/idea.png">&nbsp;<strong>Prototype idea</strong></li>
       </ul>
       <input type="hidden" name="location_type" value="{{default location_type 'other'}}">
 
-      <p class="type-instructions notime-type-instructions {{#isnt location_type 'notime'}}is-hidden{{/isnt}}">Pedestrians don’t have enough time to cross the street during the “Walk” signal.</p>
-      <p class="type-instructions doublepark-type-instructions {{#isnt location_type 'doublepark'}}is-hidden{{/isnt}}">Many vehicles are parked in moving lanes.</p>
-      <p class="type-instructions longwait-type-instructions {{#isnt location_type 'longwait'}}is-hidden{{/isnt}}">Pedestrians need to wait too long to receive the “Walk” signal.</p>
-      <p class="type-instructions redlight-type-instructions {{#isnt location_type 'redlight'}}is-hidden{{/isnt}}">Many drivers don’t stop at a red light or a stop sign.</p>
-      <p class="type-instructions jaywalking-type-instructions {{#isnt location_type 'jaywalking'}}is-hidden{{/isnt}}">Many pedestrians cross the street against the signal or in the middle of the block.</p>
-      <p class="type-instructions visibility-type-instructions {{#isnt location_type 'visibility'}}is-hidden{{/isnt}}">Drivers and pedestrians have difficulty seeing each other.</p>
     </div>
 
     <div class="textarea form-item-container">
