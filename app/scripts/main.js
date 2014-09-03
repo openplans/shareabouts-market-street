@@ -211,15 +211,9 @@ var Shareabouts = Shareabouts || {};
       // No current filter, but there was one previously
       if (NS.filter) {
         NS.filter = null;
-        resetPlaces();
-
-        // Add the place raster layer
-        NS.map.overlayMapTypes.forEach(function(overlay) {
-          if (overlay.name === 'visionzero_places') {
-            overlay.setOpacity(1);
-          }
-        });
       }
+        
+      resetPlaces();
     }
   });
 
@@ -245,17 +239,17 @@ var Shareabouts = Shareabouts || {};
     streetviewVisible = true;
 
     // Get the intersection data file
-    $.ajax({
-      url: getIntersectionFileUrl(intersectionId),
-      dataType: 'json',
-      success: function(intersection) {
-        var html = NS.Templates['intersection-detail'](intersection);
-        $('.shareabouts-intersection-detail').html(html);
-      },
-      error: function() {
-        $('.shareabouts-intersection-detail').empty();
-      }
-    });
+    // $.ajax({
+    //   url: getIntersectionFileUrl(intersectionId),
+    //   dataType: 'json',
+    //   success: function(intersection) {
+    //     var html = NS.Templates['intersection-detail'](intersection);
+    //     $('.shareabouts-intersection-detail').html(html);
+    //   },
+    //   error: function() {
+    //     $('.shareabouts-intersection-detail').empty();
+    //   }
+    // });
 
     // Show the streetview container
     $('.shareabouts-streetview-container').addClass('active');
@@ -666,7 +660,7 @@ var Shareabouts = Shareabouts || {};
       $('.shareabouts-streetview-container').removeClass('active');
       // Empty out the Street View div, for good measure
       $('.shareabouts-streetview').empty();
-      $('.shareabouts-intersection-detail').empty();
+      // $('.shareabouts-intersection-detail').empty();
       // Get rid of the map marker
       NS.currentMarker.setMap(null);
       // Show the map panel
