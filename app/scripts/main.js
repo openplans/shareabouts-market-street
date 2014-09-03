@@ -53,11 +53,11 @@ var Shareabouts = Shareabouts || {};
       {
         condition: '"{{location_type}}" == "idea"',
         icon: {
-          url: 'styles/images/markers/sv-idea.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/sv-idea.png',
           anchor: new google.maps.Point(41,109)
         },
         focusIcon: {
-          url: 'styles/images/markers/focused-idea.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/focused-idea.png',
           anchor: new google.maps.Point(41,109)
 
         }
@@ -65,11 +65,11 @@ var Shareabouts = Shareabouts || {};
       {
         condition: '"{{location_type}}" == "like"',
         icon: {
-          url: 'styles/images/markers/sv-like.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/sv-like.png',
           anchor: new google.maps.Point(41,109)
         },
         focusIcon: {
-          url: 'styles/images/markers/focused-like.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/focused-like.png',
           anchor: new google.maps.Point(41,109)
 
         }
@@ -77,11 +77,11 @@ var Shareabouts = Shareabouts || {};
       {
         condition: '"{{location_type}}" == "dislike"',
         icon: {
-          url: 'styles/images/markers/sv-dislike.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/sv-dislike.png',
           anchor: new google.maps.Point(41,109)
         },
         focusIcon: {
-          url: 'styles/images/markers/focused-dislike.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/focused-dislike.png',
           anchor: new google.maps.Point(41,109)
 
         }
@@ -89,7 +89,7 @@ var Shareabouts = Shareabouts || {};
       {
         condition: 'true',
         newIcon: {
-          url: 'styles/images/markers/marker-70x124-plus.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/marker-70x124-plus.png',
           anchor: new google.maps.Point(35,103)
 
         }
@@ -99,21 +99,21 @@ var Shareabouts = Shareabouts || {};
       {
         condition: '"{{location_type}}" == "idea"',
         icon: {
-          url: 'styles/images/markers/idea.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/idea.png',
           anchor: new google.maps.Point(12, 12)
         }
       },
       {
         condition: '"{{location_type}}" == "like"',
         icon: {
-          url: 'styles/images/markers/like.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/like.png',
           anchor: new google.maps.Point(12, 12)
         }
       },
       {
         condition: '"{{location_type}}" == "dislike"',
         icon: {
-          url: 'styles/images/markers/dislike.png',
+          url: 'http://openplans.github.io/shareabouts-market-street/styles/images/markers/dislike.png',
           anchor: new google.maps.Point(12, 12)
         }
       },
