@@ -283,6 +283,12 @@ var Shareabouts = Shareabouts || {};
       NS.router.navigate('');
     });
 
+    // When a place is added to the internal streetview collection, add it
+    // to our collection so it shows up on the map.
+    NS.streetview.placeCollection.on('add', function(model) {
+      NS.mapPlaceCollection.add(model);
+    });
+
     // Init the spinner (not shown) when a place survey is shown. This is
     // necessary since it's JS.
     $(NS.streetview).on('showplacesurvey', function(evt, view) {
