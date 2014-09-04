@@ -730,7 +730,7 @@ var Shareabouts = Shareabouts || {};
         }
 
         // Make sure to bring the selector back into view
-        $('label[for="place-location_type"]').get(0).scrollIntoView();
+        $('label[for="place-location_type"]').get(0).scrollIntoView(false);
 
       } else {
         $target.addClass('is-open');
