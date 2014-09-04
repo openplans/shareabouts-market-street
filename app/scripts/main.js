@@ -212,7 +212,7 @@ var Shareabouts = Shareabouts || {};
       if (NS.filter) {
         NS.filter = null;
       }
-        
+
       resetPlaces();
     }
   });
@@ -446,8 +446,8 @@ var Shareabouts = Shareabouts || {};
         autocomplete = new google.maps.places.Autocomplete(
           document.getElementById('shareabouts-map-search'), {
             bounds: new google.maps.LatLngBounds(
-              new google.maps.LatLng(40.742380, -74.006524),
-              new google.maps.LatLng(40.765787, -73.964896)),
+              new google.maps.LatLng(37.769663, -122.430739),
+              new google.maps.LatLng(37.794728, -122.390270)),
             componentRestrictions: {country: 'us'},
             types: ['geocode']
           });
