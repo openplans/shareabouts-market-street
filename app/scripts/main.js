@@ -773,8 +773,8 @@ var Shareabouts = Shareabouts || {};
 
     NS.auth = new Shareabouts.Auth({
       apiRoot: 'http://data.shareabouts.org/api/v2/',
-      successPage: 'success.html',
-      errorPage: 'error.html'
+      successPage: '/map-auth-success',
+      errorPage: '/map-auth-error'
     });
 
     $(NS.auth).on('authsuccess', function(evt, data) {
