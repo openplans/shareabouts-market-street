@@ -20,12 +20,11 @@
     <div class="text form-item-container">
       <label for="place-location_type">Category </label>
       <ul class="place-type-list place-type-selector unstyled-list">
-        <li class="prompt {{^if location_type}}active{{/if}}">Please choose a category&hellip;</li>
-        <li class="{{#is location_type 'like'}}active{{/is}}" data-value="like"><img src="styles/images/markers/like.png">&nbsp;<strong>Something you like</strong></li>
-        <li class="{{#is location_type 'dislike'}}active{{/is}}" data-value="dislike"><img src="styles/images/markers/dislike.png">&nbsp;<strong>Something you don't like</strong></li>
-        <li class="{{#is location_type 'idea'}}active{{/is}}" data-value="idea"><img src="styles/images/markers/idea.png">&nbsp;<strong>Prototype idea</strong></li>
+        <li class="{{#is location_type 'like'}}active{{/is}} {{^if location_type}}active{{/if}}" data-value="like"><img src="http://openplans.github.io/shareabouts-market-street/styles/images/markers/like.png">&nbsp;<strong>Something you like</strong></li>
+        <li class="{{#is location_type 'dislike'}}active{{/is}}" data-value="dislike"><img src="http://openplans.github.io/shareabouts-market-street/styles/images/markers/dislike.png">&nbsp;<strong>Something you don't like</strong></li>
+        <li class="{{#is location_type 'idea'}}active{{/is}}" data-value="idea"><img src="http://openplans.github.io/shareabouts-market-street/styles/images/markers/idea.png">&nbsp;<strong>Prototype idea</strong></li>
       </ul>
-      <input type="hidden" name="location_type" value="{{default location_type 'other'}}">
+      <input type="hidden" name="location_type" value="{{default location_type 'like'}}">
 
     </div>
 
