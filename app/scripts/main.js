@@ -417,8 +417,8 @@ var Shareabouts = Shareabouts || {};
     } else {
       // Apply the attribute filter if it exists
       var data = _.extend({
-        near: center.lat()+','+center.lng(),
-        distance_lt: '800m'
+        // near: center.lat()+','+center.lng(),
+        // distance_lt: '800m'
       }, NS.filter);
 
       setMinZoomPlaceStyle({visible: false});
@@ -434,7 +434,7 @@ var Shareabouts = Shareabouts || {};
     var map = new google.maps.Map($('.shareabouts-location-map').get(0), {
           center: new google.maps.LatLng(37.7854838, -122.4061001),
           zoom: 15,
-          minZoom: 12,
+          minZoom: 14,
           maxZoom: 19,
           streetViewControl: false,
           panControl: false,
